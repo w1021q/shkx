@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>中国社会科学网</title>
+		<base target="_blank" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" href="css/indexstyle.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+		<script type="text/javascript">
+		window.onload = function () {
+	var oBtnLeft = document.getElementById("goleft");
+	var oBtnRight = document.getElementById("goright");
+	var oDiv = document.getElementById("indexmaindiv");
+	var oDiv1 = document.getElementById("maindiv1");
+	var oUl = oDiv.getElementsByTagName("ul")[0];
+	var aLi = oUl.getElementsByTagName("li");
+	var now = -3 * (aLi[0].offsetWidth + 13);
+	oUl.style.width = aLi.length * (aLi[0].offsetWidth + 13) + 'px';
+	oBtnRight.onclick = function () {
+		var n = Math.floor((aLi.length * (aLi[0].offsetWidth + 13) + oUl.offsetLeft) / aLi[0].offsetWidth);
+
+		if (n <= 3) {
+			move(oUl, 'left', 0);
+		}
+		else {
+			move(oUl, 'left', oUl.offsetLeft + now);
+		}
+	}
+	oBtnLeft.onclick = function () {
+		var now1 = -Math.floor((aLi.length / 3)) * 3 * (aLi[0].offsetWidth + 13);
+
+		if (oUl.offsetLeft >= 0) {
+			move(oUl, 'left', now1);
+		}
+		else {
+			move(oUl, 'left', oUl.offsetLeft - now);
+		}
+	}
+	var timer = setInterval(oBtnRight.onclick, 5000);
+	oDiv.onmouseover = function () {
+		clearInterval(timer);
+	}
+	oDiv.onmouseout = function () {
+		timer = setInterval(oBtnRight.onclick, 5000);
+	}
+
+};
+
+function getStyle(obj, name) {
+	if (obj.currentStyle) {
+		return obj.currentStyle[name];
+	}
+	else {
+		return getComputedStyle(obj, false)[name];
+	}
+}
+
+function move(obj, attr, iTarget) {
+	clearInterval(obj.timer)
+	obj.timer = setInterval(function () {
+		var cur = 0;
+		if (attr == 'opacity') {
+			cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+		}
+		else {
+			cur = parseInt(getStyle(obj, attr));
+		}
+		var speed = (iTarget - cur) / 6;
+		speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+		if (iTarget == cur) {
+			clearInterval(obj.timer);
+		}
+		else if (attr == 'opacity') {
+			obj.style.filter = 'alpha(opacity:' + (cur + speed) + ')';
+			obj.style.opacity = (cur + speed) / 100;
+		}
+		else {
+			obj.style[attr] = cur + speed + 'px';
+		}
+	}, 30);
+}  
+</script>
+	</head>
+	<body>
+		<div class="wrapBox titleBox layout">
+			<div class="boxMain layout">
+				<div class="TitleLeft layout">
+					<div class="LogoBox"><a href=""><img src="images/sy-logo.png"/></a></div>
+					<div class="LogoRight">
+						<a href="">首页</a><a href="">网站导航</a>
+					</div>
+				</div>
+				<div class="TitleRight layout">
+					<div class="inputSearch">
+						<input type="text" calss="searchInpt" placeholder="输入关键词"/>
+						<a href=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="topBg layout">
+			<a href=""><img src="images/jiaodiantu.jpg"/></a>
+		</div>
+		<div class="navBg layout">
+			<div class="navbox layout">
+				<ul>
+					<li><a href="">首页</a></li>
+					<li><a href="">资讯</a></li>
+					<li><a href="">访谈</a></li>
+					<li><a href="">报刊视界</a></li>
+					<li><a href="">名家</a></li>
+					<li><a href="">视频</a></li>
+					<li><a href="">好书</a></li>
+					<li><a href="">纪实</a></li>
+					<li><a href="">动漫</a></li>
+					<li><a href="">专题</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="newWrap layout">
+			<div class="newBox layout">
+				<div class="left">
+					<a href="https://cssn.newaircloud.com/detailArticle/19736052_89071_zgskw.html">
+						<img src="images/img1.jpg" alt="" />
+						<div class="text"><p>我说【2022年第2期】仰海峰：马克思的社会转型思想</p></div>
+					</a>
+				</div>
+				<div class="right">
+					<ul>
+						<li>
+							<div class="img"><a href="https://cssn.newaircloud.com/detailArticle/19736052_89071_zgskw.html"><img src="images/img2.jpg"/></a></div>
+							<div class="text">
+								<div class='titleTxt'><a href="https://cssn.newaircloud.com/detailArticle/19736052_89071_zgskw.html">我说【2022年第2期】仰海峰：马克思的社会转型思想马克思的社会转型思想马克思的社会转型思想</a></div>
+								<a href="https://cssn.newaircloud.com/detailArticle/19736052_89071_zgskw.html" class="playBtn"></a>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="https://cssn.newaircloud.com/detailArticle/19563096_89072_zgskw.html"><img src="images/img3.jpg"/></a></div>
+							<div class="text">
+								<div class='titleTxt'><a href="https://cssn.newaircloud.com/detailArticle/19563096_89072_zgskw.html">【哲学】万俊人：中国现代性 另一种现实可能</a></div>
+								<a href="https://cssn.newaircloud.com/detailArticle/19563096_89072_zgskw.html" class="playBtn"></a>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="https://cssn.newaircloud.com/detailArticle/19480611_89073_zgskw.html"><img src="images/img4.jpg"/></a></div>
+							<div class="text">
+								<div class='titleTxt'><a href="https://cssn.newaircloud.com/detailArticle/19480611_89073_zgskw.html"> 景天魁：社会为本 治学为根</a></div>
+								<a href="https://cssn.newaircloud.com/detailArticle/19480611_89073_zgskw.html" class="playBtn"></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--news-->
+		<div class="newList marTop30 layout">
+			<div class="Title layout">
+				<p class="leftbg"></p>
+				<a href=""><img src="images/newTitle.png"/></a>
+				<p class="rightbg"></p>
+			</div>
+			<div class="NewList layout">
+				<div class="newLeft">
+					<ul>
+						<li>
+							<div class="one">
+								<div><a href="https://cssn.newaircloud.com/detailArticle/20125541_89068_zgskw.html"><img src="images/img2-1.png"/></a></div>
+								<p><a href="https://cssn.newaircloud.com/detailArticle/20125541_89068_zgskw.html"> 迎接党的二十大 专家学者聚焦如何用学术讲好政治</a></p>
+							</div>
+							<div class="ulList layout">
+								<ul>
+									<li>
+										<a href="https://cssn.newaircloud.com/detailArticle/20125541_89068_zgskw.html">习近平在中央统战工作会议上强调 促进海内外中华儿女 </a>
+									</li>
+									<li><a href="https://cssn.newaircloud.com/detailArticle/20125541_89068_zgskw.html">习近平向第二届中非和平安全论坛致贺信`</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="one">
+								<div><a href="https://cssn.newaircloud.com/detailArticle/20125523_89068_zgskw.html"><img src="images/img2-4.png"/></a></div>
+								<p><a href="https://cssn.newaircloud.com/detailArticle/20125523_89068_zgskw.html">铭记历史开创未来 ——东北沦陷史陈列馆举行改陈布展开馆仪式</a></p>
+							</div>
+							<div class="ulList layout">
+								<ul>
+									<li>
+										<a href="">习近平在中央统战工作会议上强调 促进海内外中华儿女 </a>
+									</li>
+									<li><a href="">习近平向第二届中非和平安全论坛致贺信`</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="one">
+								<div><a href="https://cssn.newaircloud.com/detailArticle/20125498_89068_zgskw.html"><img src="images/img2-3.png"/></a></div>
+								<p><a href="https://cssn.newaircloud.com/detailArticle/20125498_89068_zgskw.html">国家社会科学基金重大项目“汉语诗歌韵律的历史-空间嬗变、脑认知机制与数据库建设研究”开题
+ </a></p>
+							</div>
+							<div class="ulList layout">
+								<ul>
+									<li>
+										<a href="">习近平在中央统战工作会议上强调 促进海内外中华儿女 </a>
+									</li>
+									<li><a href="">习近平向第二届中非和平安全论坛致贺信`</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="newRight layout">
+					<ul>
+						<li class="bold"><i>·</i><a href="https://cssn.newaircloud.com/detailArticle/20125541_89068_zgskw.html">"习近平同志《论“三农”工作》出版发行 </a></li>
+						<li class="bold"><i>·</i><a href="https://cssn.newaircloud.com/detailArticle/20125523_89068_zgskw.html">铭记历史开创未来 ——东北沦陷史陈列馆举行</a></li>
+						<li><i>·</i><a href="https://cssn.newaircloud.com/detailArticle/20125498_89068_zgskw.html">国家社会科学基金重大项目“汉语诗歌韵律的历</a></li>
+						<li><i>·</i><a href="https://cssn.newaircloud.com/detailArticle/20125498_89068_zgskw.html">以网络强国战略思想指引学术融媒体建设</a></li>
+						<li><i>·</i><a href="https://cssn.newaircloud.com/detailArticle/20125466_89068_zgskw.html">乡村振兴战略赋能西部地区县级融媒体中心发展</a></li>
+						<li><i>·</i><a href="https://cssn.newaircloud.com/detailArticle/20125441_89068_zgskw.html">具身认知理论为融媒体人才培养提供指导</a></li>
+						<li><i>·</i><a href="https://cssn.newaircloud.com/detailArticle/20015831_89068_zgskw.html"> 融媒体讲好扶贫故事路径探析</a></li>
+						<li><i>·</i><a href="https://cssn.newaircloud.com/detailArticle/20015631_89068_zgskw.html">提升县级融媒体中心治理效能</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!---->
+<!--news-->
+		<div class="newList marTop30 layout">
+			<div class="Title layout">
+				<p class="leftbg"></p>
+				<a href=""><img src="images/fangtTitle.png"/></a>
+				<p class="rightbg"></p>
+			</div>
+			<div class="ftBox layout">
+				<div class="rightBox layout">
+					<div class="img"><a href=""><p></p><img src="images/img26-1.png"/></a></div>
+					<div class="imgBox">
+						<div class="title">
+							<a href="">黄平：从“中国性”探索人类命运共同体的内涵</a>
+							<p>
+“中国性”这个概念可以说是一个集合概念、综合概念，但它也不只是对现象的描述，它应该是一个分析性的概念，哪怕是从现象上说，它也是一个综合的、几维的中国或者多维的中国。比如，毫无疑问在版图意义上中国是个大国，它不是一个小国；在人口意义上是一个有着众多人口的中国。最近几十年，乃至过去几千年在经济意义上是个发达的，甚至繁荣的中国，现在我们至少在高速发展、快速发展，甚至有人把它叫中国发展奇迹</p>
+							<p class="time">2022年8月1日</p>
+						</div>
+					</div>
+				</div>
+				<div class="leftBox ">
+					<ul>
+						<li>
+							<div class="imgb"><a href="https://cssn.newaircloud.com/detailArticle/19452740_89069_zgskw.html"><p></p><img src="images/img8.jpg"/></a></div>
+							<div class="txtB">
+								<div class="title"><a href="">黄平：从“中国性”探索人类命运共同体的内涵</a></div>
+							<p class="timeB">2022-06-30</p>
+							</div> 
+						</li>
+						<li>
+							<div class="imgb"><a href="https://cssn.newaircloud.com/detailArticle/19452745_89069_zgskw.html"><p></p><img src="images/img9.jpg"/></a></div>
+							<div class="txtB">
+								<div class="title"><a href="">让中国话语走向世界</a></div>
+							<p class="timeB">2022-06-30</p>
+							</div> 
+						</li>
+						<li>
+							<div class="imgb"><a href="https://cssn.newaircloud.com/detailArticle/19452787_89069_zgskw.html"><p></p><img src="images/img10.jpg"/></a></div>
+							<div class="txtB">
+								<div class="title"><a href="">【学者专访】郇庆治：中国应扮演世界文明发展的贡献者和引领者</a></div>
+							<p class="timeB">2022年8月1日</p>
+							</div>
+							
+						</li>
+						<li>
+							<div class="imgb"><a href="https://cssn.newaircloud.com/detailArticle/19452792_89069_zgskw.html"><p></p><img src="images/img11.jpg"/></a></div>
+							<div class="txtB">
+								<div class="title"><a href="">【学者专访】郇庆治：中国应扮演世界文明发展的贡献者和引领者</a></div>
+							<p class="timeB">2022年8月1日</p>
+							</div>
+							
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+	<!--news-->
+		<div class="newList marTop30 layout">
+			<div class="Title layout">
+				<p class="leftbg"></p>
+				<a href=""><img src="images/bkTitle.png"/></a>
+				<p class="rightbg"></p>
+			</div>
+			<div class="bkBox layout">
+				<div class="bkRight layout">
+					<div class="title layout"><a href=""><img src="images/图层706@2x.png"/></a></div>
+					<div class="box layout">
+						<div class="topbox layout">
+							<div class="img"><a href="https://cssn.newaircloud.com/detailArticle/19693193_89068_zgskw.html"><img src="images/图层25.png"/></a></div>
+							<p>习近平强调，中非是风雨同舟、守望相助的好朋友、好伙伴、好兄弟。当前，世界百年未有之大变局加速演进，新冠肺炎疫情仍在蔓延，各类安全挑战层出不穷，人类社会面。前所未有的挑战。实现持久和平和普遍安全是中非人民的共同心愿。中国始终秉持正确义利观和真实亲诚理念发展对非关系，愿同非洲朋友一道，坚持共同、综合、合作、可持续的安全观</p>
+						</div>
+						<div class="ulList">
+							<ul>
+								<li><a href="https://cssn.newaircloud.com/detailArticle/19693193_89068_zgskw.html"><i>·</i>殷剑峰：人口负增长与长期停滞</a></li>
+								<li><a href="https://cssn.newaircloud.com/detailArticle/19693193_89068_zgskw.html"><i>·</i>殷剑峰：人口负增长与长期停滞</a></li>
+								<li><a href="https://cssn.newaircloud.com/detailArticle/19693193_89068_zgskw.html"><i>·</i>殷剑峰：人口负增长与长期停滞</a></li>
+							</ul>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="bkLeft">
+					<div class="title layout">
+						<a href=""><img src="images/图层707.png"/></a>
+					</div>
+					<div class="listBox layout">
+						<ul>
+							<li class="layout">
+								<div class="img "><a href="https://cssn.newaircloud.com/detailArticle/20015565_89068_zgskw.html"><img src="images/7EAFD4DA-D7DA-4F90-ACBD-D1A1D1A8C875.png"/></a></div>
+								<div class="txt">
+									<h2><a href="https://cssn.newaircloud.com/detailArticle/20015565_89068_zgskw.html">习近平向全球重要农业文化遗产大会致贺信 </a></h2>
+									<div>当前，世界正在经历百年未有之大变局，人类社会进入大发展、大变革的新时代。与此同时，全球性新威胁新挑极践...<a href="">[详细]</a></div>
+									<p class="time">2022-06-18 17:15</p>
+								</div>
+							</li>
+							<li class="layout">
+								<div class="img "><a href="https://cssn.newaircloud.com/detailArticle/19726113_89068_zgskw.html"><img src="images/图层24.png"/></a></div>
+								<div class="txt">
+									<h2><a href="https://cssn.newaircloud.com/detailArticle/19726113_89068_zgskw.html">习近平向全球重要农业文化遗产大会致贺信 </a></h2>
+									<div>当前，世界正在经历百年未有之大变局，人类社会进入大发展、大变革的新时代。与此同时，全球性新威胁新挑极践...<a href="">[详细]</a></div>
+									<p class="time">2022-06-18 17:15</p>
+								</div>
+							</li>
+							<li class="layout">
+								<div class="img "><a href="https://cssn.newaircloud.com/detailArticle/19726105_89068_zgskw.html"><img src="images/W020210111306093898235_391.png"/></a></div>
+								<div class="txt">
+									<h2><a href="https://cssn.newaircloud.com/detailArticle/19726105_89068_zgskw.html">习近平向全球重要农业文化遗产大会致贺信 </a></h2>
+									<div>当前，世界正在经历百年未有之大变局，人类社会进入大发展、大变革的新时代。与此同时，全球性新威胁新挑极践...<a href="">[详细]</a></div>
+									<p class="time">2022-06-18 17:15</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!--list-->
+		<div class="newList marTop30 layout">
+			<div class="Title leftT layout">
+				<a href=""><img src="images/titmj.png"/></a>
+				<p class="rightbg "></p>
+			</div>
+			<!-- Swiper -->
+			 <section class="pc-banner">
+				<div class="swiper-container">
+			        <div class="swiper-wrapper">
+			            <div class="swiper-slide swiper-slide-center none-effect">
+			            	<a href="https://cssn.newaircloud.com/detailArticle/19480611_89073_zgskw.html">
+			            		<div class="img"><img src="images/图层24.png" ></div>
+			            		<div class="text">
+			            			<h2>黄宝生</h2>
+				            		<div class="tie">清华大学国际关系研究院院长世界和平论坛秘书长</div>
+				            		<p>现任中国科学技术大学教授，博士生导师，国家杰出青年科学基金获得者。2000年6月在中国科学技术大学获得博士学位，2001年7月至2003年10月德国马普天体物理所博士后，德国洪堡基金会洪堡学者。</p>
+			            		</div>
+			            	</a>
+			            </div>
+			            <div class="swiper-slide">
+			            	<a href="https://cssn.newaircloud.com/detailArticle/19480590_89073_zgskw.html">
+			            		<div class="img"><img src="images/图层24.png" ></div>
+			            		<div class="text">
+			            			<h2>陈高华</h2>
+				            		<div class="tie">清华大学国际关系研究院院长世界和平论坛秘书长</div>
+				            		<p>现任中国科学技术大学教授，博士生导师，国家杰出青年科学基金获得者。2000年6月在中国科学技术大学获得博士学位，2001年7月至2003年10月德国马普天体物理所博士后，德国洪堡基金会洪堡学者。</p>
+			            		</div>
+			            	</a>
+			            </div>
+			            <div class="swiper-slide">
+			            	<a href="https://cssn.newaircloud.com/detailArticle/19480473_89073_zgskw.html">
+			            		<div class="img"><img src="images/图层24.png" ></div>
+			            		<div class="text">
+			            			<h2>黄宝生</h2>
+				            		<div class="tie">清华大学国际关系研究院院长世界和平论坛秘书长</div>
+				            		<p>现任中国科学技术大学教授，博士生导师，国家杰出青年科学基金获得者。2000年6月在中国科学技术大学获得博士学位，2001年7月至2003年10月德国马普天体物理所博士后，德国洪堡基金会洪堡学者。</p>
+			            		</div>
+			            	</a>
+			            </div>
+			            <div class="swiper-slide">
+			            	<a href="https://cssn.newaircloud.com/detailArticle/19480023_89073_zgskw.html">
+			            		<div class="img"><img src="images/图层24.png" ></div>
+			            		<div class="text">
+			            			<h2>黄宝生</h2>
+				            		<div class="tie">清华大学国际关系研究院院长世界和平论坛秘书长</div>
+				            		<p>现任中国科学技术大学教授，博士生导师，国家杰出青年科学基金获得者。2000年6月在中国科学技术大学获得博士学位，2001年7月至2003年10月德国马普天体物理所博士后，德国洪堡基金会洪堡学者。</p>
+			            		</div>
+			            	</a>
+			            </div>
+			            <div class="swiper-slide">
+			            	<a href="https://cssn.newaircloud.com/detailArticle/19480023_89073_zgskw.html">
+			            		<div class="img"><img src="images/图层24.png" ></div>
+			            		<div class="text">
+			            			<h2>黄宝生</h2>
+				            		<div class="tie">清华大学国际关系研究院院长世界和平论坛秘书长</div>
+				            		<p>现任中国科学技术大学教授，博士生导师，国家杰出青年科学基金获得者。2000年6月在中国科学技术大学获得博士学位，2001年7月至2003年10月德国马普天体物理所博士后，德国洪堡基金会洪堡学者。</p>
+			            		</div>
+			            	</a>
+			            </div>
+			            <div class="swiper-slide">
+			            	<a href="https://cssn.newaircloud.com/detailArticle/19479937_89073_zgskw.html">
+			            		<div class="img"><img src="images/图层24.png" ></div>
+			            		<div class="text">
+			            			<h2>黄宝生</h2>
+				            		<div class="tie">清华大学国际关系研究院院长世界和平论坛秘书长</div>
+				            		<p>现任中国科学技术大学教授，博士生导师，国家杰出青年科学基金获得者。2000年6月在中国科学技术大学获得博士学位，2001年7月至2003年10月德国马普天体物理所博士后，德国洪堡基金会洪堡学者。</p>
+			            		</div>
+			            	</a>
+			            </div>
+			           
+			        </div>
+			    </div>
+			    <div class="swiper-pagination"></div>
+				<div class="button">
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</section>
+			<!-- Swiper JS -->
+			<script src="js/swiper.min.js"></script>
+			<script>
+window.onload = function() {
+var swiper = new Swiper('.swiper-container',{
+	autoplay:3000,
+	speed:1000,
+	autoplayDisableOnInteraction : false,
+	loop:true,
+	centeredSlides : true,
+	slidesPerView:5,
+	pagination : '.swiper-pagination',
+	paginationClickable:true,
+	prevButton:'.swiper-button-prev',
+	nextButton:'.swiper-button-next',
+	onInit:function(swiper){
+		swiper.slides[2].className="swiper-slide swiper-slide-active";//第一次打开不要动画
+		},
+	breakpoints: { 
+			668: {
+				slidesPerView: 1,
+			 }
+		}
+	});
+	}
+</script>
+		</div>
+<!--gfltan-->
+	<div class="ltWrap">
+		<div class="ltBox layout">
+			<div class="title"><img src="images/151.png" alt="" /></div>
+			<div class="list layout">
+				<ul>
+					<li>
+						<div class="box">
+							<a href="https://cssn.newaircloud.com/detailArticle/20137302_89072_zgskw.html"><img src="images/img16.png"/></a>
+							<h2><a href="https://cssn.newaircloud.com/detailArticle/20137302_89072_zgskw.html">【主旨演讲】张江：大变局中的人文学术</a></h2>
+							<p>张江主要研究领域为阐释学和文艺理论。代表性专著有《作者能不能死》（中文版、英文版、德文版）等，在《中国社会科学》《哲学研究》《文艺研究》</p>
+						</div>
+					</li>
+					<li>
+						<div class="box">
+							<!--<a href=""><img src="images/ac3b3d3b679b27feede21a11bdd48322a79d3fe3169bc-2w41w3_fw1200(1).png"/></a>-->
+							<h2><a href="https://cssn.newaircloud.com/detailArticle/20137233_89072_zgskw.html">【主旨演讲】李稻葵：大变局中的中国经济</a></h2>
+							<p>【学者简介】李稻葵：1963年生，经济学博士，清华大学中国经济思想与实践研究院院长，十三届全国政协常委、经济委员会委员。主要研究方向为政府与市场经济学、中国经济、国际经济、经济发展等，现任国际期刊Journal of Government and Economics联合主编。代表著作有Economic Lessons from China’s Forty Years of Reform and Opening-up、《百年变局下的中国经济》《中国的经验：改革开放四十年的经济学总结》《中国方案1.0》《中国经济的未来之路——德国模式的中国借鉴》《重启：新改革时代的中国与世界》《人民币国际化道路研究》《乱世中的大国崛起》等</p>
+							<div class="more"><a href="https://cssn.newaircloud.com/detailArticle/20137233_89072_zgskw.html">> 查看更多 <</a></div>
+						</div>
+					</li>
+					<li>
+						<div class="box">
+							<a href="https://cssn.newaircloud.com/detailArticle/20137205_89072_zgskw.html"><img src="images/img17.png"/></a>
+							<h2><a href="https://cssn.newaircloud.com/detailArticle/20137205_89072_zgskw.html">【学者专访】徐勇：单一制国家的新形态</a></h2>
+							<p>【学者简介】徐勇，华中师范大学资深教授，政治学部部长。长期从事基层政治与乡村治理研究，提出建设政治学“田野学派”。出版《关系中的国家》（三卷本）、《国家化、农民性与乡村整合》《城乡差别的中国政治》等专著，发起主持“中国与世界农村及基层调查工程”。</p>
+						</div>
+					</li>
+					<li>
+						<div class="box">
+							<!--<a href=""><img src="images/ac3b3d3b679b27feede21a11bdd48322a79d3fe3169bc-2w41w3_fw1200(1).png"/></a>-->
+							<h2><a href="https://cssn.newaircloud.com/detailArticle/20137223_89072_zgskw.html">【学者专访】郇庆治：中国应扮演世界文明发展的贡献者和引领者</a></h2>
+							<p>【学者简介】郇庆治，北京大学马克思主义学院教授、教育部长江学者特聘教授，习近平生态文明思想研究中心主任。主要从事国外马克思主义、环境政治和比较政治研究。</p>
+							<div class="more"><a href="https://cssn.newaircloud.com/detailArticle/20137223_89072_zgskw.html">> 查看更多 <</a></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--sj-->
+	<div class="newList marTop30 layout">
+		<div class="Title layout">
+			<p class="leftbg"></p>
+			<a href=""><img src="images/sp.png"/></a>
+			<p class="rightbg"></p>
+		</div>
+		<!---->	
+		<div class="spBox layout">
+			<ul>
+				<li>
+					<div class="img">
+						<a href="https://cssn.newaircloud.com/detailArticle/19855996_89070_zgskw.html">
+							<img src="images/img20.png" alt="" />
+							<p class="play"></p>
+						</a>
+					</div>
+					<div class="text">
+						<h2><a href="https://cssn.newaircloud.com/detailArticle/19855996_89070_zgskw.html">考古旅游：展示中华文明的一种选择</a></h2>
+						<p>
+							
+现代考古学诞生百年间，周口店、殷墟、二里头、陶寺、石峁、良渚、三星堆等大量的考古名词标注了中华文明的发展足迹，中国考古实现了不断拓展历史版图、增强历史信度、丰富历史内涵、活化历史场景的使命。新时代，如何更进一步利用日益丰富的考古资源展示悠久厚重的中华文明、提升中国文化软实力，成为了一项新的课题，而考古旅游就是其中的一个重要路径
+						</p>
+					</div>
+					
+				</li>
+				<li>
+					<div class="img">
+						<a href="https://cssn.newaircloud.com/detailArticle/20126591_89070_zgskw.html">
+							<img src="images/img21.png" alt="" />
+							<p class="play"></p>
+						</a>
+					</div>
+					<div class="text">
+						<h2><a href="https://cssn.newaircloud.com/detailArticle/20126591_89070_zgskw.html">全国性合作平台促进博物馆文创发展</a></h2>
+						<p>
+							博物馆作为传承历史文化、弘扬民族精神的公共文化服务单位，在文化强国建设中有着重要作用。近年来，习近平总书记高度重视博物馆事业的发展，对文博工作作出了许多明确指示，强调“让收藏在博物馆里的文物、陈列在广阔大地上的遗产、书写在古籍里的文字都活起来，丰富全社会历史文化滋养”。
+						</p>
+					</div>
+					
+				</li>
+				<li>
+					<div class="img">
+						<a href="https://cssn.newaircloud.com/detailArticle/20126577_89070_zgskw.html">
+							<img src="images/img22.png" alt="" />
+							<p class="play"></p>
+						</a>
+					</div>
+					<div class="text">
+						<h2><a href="https://cssn.newaircloud.com/detailArticle/20126577_89070_zgskw.html">推动中华典籍外译向纵深发展</a></h2>
+						<p>
+							推动中华典籍外译向纵深发展
+2022-09-19 14:29:27
+翻译在文化传播中具有至关重要的作用。随着我国对外开放程度越来越高、经济和社会发展越来越快、综合国力越来越强，我国与世界各国的联系将会越来越频繁和紧密，经济、文化等方面的交往也将会愈加深入。中华典籍作为我国传统文化的重要组成部分，作为中华民族文化心理结构的重要构成元素，获得了越来越多外国友人的青睐。
+						</p>
+					</div>
+					
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--hs-->
+	<div class="newList marTop30 layout">
+		<div class="Title layout">
+			<p class="leftbg"></p>
+			<a href=""><img src="images/图层714.png"/></a>
+			<p class="rightbg"></p>
+		</div>
+		<!---->
+		<div class="hbookBox layout">
+			<div class="left">
+				<ul>
+					<li><a href=""><i>·</i>《新时代这十年》丛书即将出版发行</a></li>
+					<li><a href=""><i>·</i>探索金融发展质量及测度评价研究 </a></li>
+					<li><a href=""><i>·</i>用哲学方式把握现实的逻辑</a></li>
+					<li><a href=""><i>·</i>用哲学方式把握现实的逻辑</a></li>
+					<li><a href=""><i>·</i>用哲学方式把握现实的逻辑</a></li>
+					<li><a href=""><i>·</i>用哲学方式把握现实的逻辑</a></li>
+					<li><a href=""><i>·</i>用哲学方式把握现实的逻辑</a></li>
+					
+				</ul>
+			</div>
+			<div class="right layout">
+				<div class="indexmaindiv" id="indexmaindiv">
+					<div class="indexmaindiv1 clearfix" >
+						<div class="stylesgoleft" id="goleft"></div>
+						<div class="maindiv1 " id="maindiv1">
+						<ul id="count1">
+							<li>
+								<div class="bookImg layout">
+									<a href="https://cssn.newaircloud.com/detailArticle/19856065_89070_zgskw.html">
+										<img src="images/图层708.png" alt="" />
+									</a>
+									<h2 class="layout"><a href="https://cssn.newaircloud.com/detailArticle/19856065_89070_zgskw.html">纸质书仍充满魅力 </a></h2>
+								</div>
+								
+							</li>
+							<li>
+								<div class="bookImg layout">
+									<a href="https://cssn.newaircloud.com/detailArticle/19479446_89068_zgskw.html">
+										<img src="images/图层18.png" alt="" />
+									</a>
+									<h2><a href="https://cssn.newaircloud.com/detailArticle/19479446_89068_zgskw.html">全面系统整理红军长征口述回忆史料 </a></h2>
+								</div>
+								
+							</li>
+							<li>
+								<div class="bookImg layout">
+									<a href="https://cssn.newaircloud.com/detailArticle/19451029_89071_zgskw.html">
+										<img src="images/图层19.png" alt="" />
+									</a>
+									<h2 class="layout"> <a href="https://cssn.newaircloud.com/detailArticle/19451029_89071_zgskw.html">【2022年第1期】朱凤瀚：论所谓昭穆制 </a></h2>
+								</div>
+								
+							</li>
+							
+							
+						</ul>
+						</div>
+						<div class="stylesgoright" id="goright"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+<div class="footerwrap">
+	<div class="footerBox layout">
+		<div class="tit"><a href="">关于我们</a>|<a href="">法律顾问</a>|<a href="">广告服务</a>|<a href="">网站声明</a>|<a href=""> 网站纠错</a>|<a href="">联系我们</a></div>
+		<p>电话：010-65393398         Email:zgshkxw_cssn@163.com         京ICP备11013869号             <img src="images/ghs.png"/>京公网安备11010502030146号</p>
+		<div class="b"><img src="images/logo.png" alt="" />中国社会科学网版权所有，未经书面授权禁止使用 <p>Copyright © 2011-2022 by www.cssn.cn. all rights reserved <img src="images/star5.png"></p></div>
+	</div>
+</div>
+	</body>
+</html>
